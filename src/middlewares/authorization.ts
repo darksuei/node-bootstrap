@@ -6,7 +6,7 @@ import { AppDataSource } from "../database/dataSource";
 import { type IJWTUser } from "../types/jwtUser";
 import { type Response, type NextFunction } from "express";
 
-const JWT_SECRET = readEnv("JWT_SECRET", "") as string;
+const JWT_SECRET = readEnv("JWT_SECRET") as string;
 
 /* eslint-disable-next-line @typescript-eslint/explicit-function-return-type */
 export async function authenticateJWT(req: AuthRequest, res: Response, next: NextFunction) {
