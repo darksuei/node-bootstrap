@@ -14,19 +14,6 @@ export class UserEntity {
   @Column()
   password!: string;
 
-  @Column({ nullable: true })
-  verificationCode!: string;
-
-  @Column({ nullable: true, default: "pending" })
-  verificationStatus!: "pending" | "verified";
-
-  @Column({
-    nullable: true,
-    type: "timestamp",
-    default: () => "CURRENT_TIMESTAMP",
-  })
-  verificationTimeStamp?: Date;
-
   @CreateDateColumn()
   created_at?: Date;
 

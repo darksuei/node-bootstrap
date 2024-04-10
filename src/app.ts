@@ -1,13 +1,11 @@
-import express from "express";
 import cors from "cors";
-import setupMiddlewares from "./setup/setupMiddlewares";
+import express from "express";
 import setupRoutes from "./setup/setupRoutes";
-import useragent from "express-useragent";
+import setupMiddlewares from "./setup/setupMiddlewares";
 
 const app = express();
 app.use(express.json());
 app.use(cors());
-app.use(useragent.express());
 
 setupMiddlewares(app);
 setupRoutes(app);

@@ -1,13 +1,12 @@
 import path from "path";
 import { type TransformableInfo } from "logform";
 import winston, { type Logger } from "winston";
+import { readEnv } from "./readEnv.config";
 
-// import 'dotenv/config';
-
-const logPath = process.env.LOG_PATH ?? "./logs";
+const logPath = readEnv("LOG_PATH", "./logs");
 
 const logger: Logger = winston.createLogger({
-  level: process.env.LOG_LEVEL ?? "info",
+  level: readEnv("LOG_LEVEL", "info"),
   format: winston.format.combine(winston.format.splat(), winston.format.timestamp(), winston.format.json()),
   defaultMeta: { service: "test-order-app" },
   transports: [
@@ -45,7 +44,7 @@ if (process.env.NODE_ENV !== "test") {
   );
 }
 
-logger.silent = process.env.LOG_DISABLED === "true";
+logger.silent = readEnv("LOG_SILENT") === "true";
 if (logger.silent) {
   console.log("Logger is disabled");
 }
