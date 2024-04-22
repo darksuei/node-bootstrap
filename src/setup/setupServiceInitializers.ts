@@ -1,4 +1,4 @@
-import logger from "../services/logger.config";
+import logger from "../config/logger.config";
 import { initializeDatabase } from "../database/initDatabase";
 
 export async function tryInitializeDatabase(): Promise<void> {

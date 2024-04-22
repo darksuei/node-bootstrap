@@ -3,7 +3,7 @@ import { type TransformableInfo } from "logform";
 import winston, { type Logger } from "winston";
 import { readEnv } from "./readEnv.config";
 
-const logPath = readEnv("LOG_PATH", "./logs");
+const logPath = readEnv("LOG_PATH", "./logs") as string;
 
 const logger: Logger = winston.createLogger({
   level: readEnv("LOG_LEVEL", "info"),

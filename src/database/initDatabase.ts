@@ -1,5 +1,5 @@
 import { AppDataSource } from "./dataSource";
-import logger from "../services/logger.config";
+import logger from "../config/logger.config";
 
 export const initializeDatabase = async (): Promise<void> => {
   logger.info("Connecting to database...");

@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import { readEnv } from "../services/readEnv.config";
+import { readEnv } from "../config/readEnv.config";
 import { AuthRequest } from "../types/express";
 import { UserEntity } from "../entity/UserEntity";
 import { AppDataSource } from "../database/dataSource";
