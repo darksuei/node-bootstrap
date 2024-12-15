@@ -6,7 +6,7 @@ import { readEnv } from "./readEnv.config";
 const logPath = readEnv("LOG_PATH", "./logs") as string;
 
 const logger: Logger = winston.createLogger({
-  level: readEnv("LOG_LEVEL", "info"),
+  level: readEnv("LOG_LEVEL", "info") as string,
   format: winston.format.combine(winston.format.splat(), winston.format.timestamp(), winston.format.json()),
   defaultMeta: { service: "test-order-app" },
   transports: [

@@ -21,11 +21,22 @@ export function configureEnvironment(): void {
 }
 configureEnvironment();
 
-export function readEnv(key: string, defaultValue?: string): string | undefined {
+export function readEnv(
+  key: string,
+  defaultValue?: string | number,
+  isNumeric: boolean = false
+): string | number | undefined {
   const value = process.env[key];
-  return value ?? defaultValue;
+  if (value) {
+    return isNumeric ? parseInt(value) : value;
+  }
+  return defaultValue;
 }
 
 export function devEnvironment() {
   return process.env.NODE_ENV === "development";
+}
+
+export function testEnvironment() {
+  return process.env.NODE_ENV === "test";
 }

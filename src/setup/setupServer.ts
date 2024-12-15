@@ -9,8 +9,8 @@ export default function setupServer(
   tryInitializeDatabase: () => Promise<void>
 ): void {
   app.listen(APP_PORT, APP_HOST, async () => {
+    await tryInitializeDatabase();
     logger.info(`Application is running on http://${APP_HOST}:${APP_PORT}/api/v1`);
     logger.info("Application is running in " + readEnv("NODE_ENV") + " mode");
-    await tryInitializeDatabase();
   });
 }
