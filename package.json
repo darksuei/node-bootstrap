@@ -1,20 +1,25 @@
 {
-  "name": "node-bootstrap",
-  "version": "1.0.0",
-  "main": "index.js",
+  "name": "null",
+  "version": "0.0.0",
+  "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
     "clean": "rimraf dist",
     "build": "tsc",
     "dev": "NODE_ENV=development nodemon --exec ts-node src/index.ts",
-    "start": "NODE_ENV=production npm run clean && tsc && node dist/index.js"
+    "start": "NODE_ENV=production npm run clean && tsc && node dist/index.js",
+    "entity:create": "./node_modules/.bin/ts-node ./node_modules/.bin/typeorm entity:create ./src/entity",
+    "test": "NODE_ENV=test jest",
+    "typeorm": "npx typeorm-ts-node-commonjs --dataSource ./src/database/dataSource.ts",
+    "typeorm:migrate": "npm run typeorm -- migration:run",
+    "typeorm:generate": "npm run typeorm -- migration:generate ./src/database/migrations/migration",
+    "typeorm:revert": "npm run typeorm -- migration:revert"
   },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.19.2",
     "http-status": "1.7.4",
-    "jsonwebtoken": "^9.0.2",
     "morgan": "^1.10.0",
     "pg": "^8.11.5",
     "swagger-ui-express": "^5.0.1",
@@ -28,7 +33,6 @@
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/express-useragent": "^1.0.5",
-    "@types/jsonwebtoken": "^9.0.6",
     "@types/morgan": "^1.9.9",
     "@types/swagger-ui-express": "^4.1.7",
     "@types/yamljs": "^0.2.34",

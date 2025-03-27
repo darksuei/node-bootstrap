@@ -1,7 +1,7 @@
 import "reflect-metadata";
+import { readEnv } from "./config/readEnv.config";
 import app from "./app";
 import setupServer from "./setup/setupServer";
-import { readEnv } from "./config/readEnv.config";
 import { tryInitializeDatabase } from "./setup/setupServiceInitializers";
 
 const APP_HOST = readEnv("APP_HOST") as string;

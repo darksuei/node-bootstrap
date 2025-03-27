@@ -8,6 +8,7 @@ function swaggerDocs(app: Application, baseUrl: string) {
   // Swagger page
   app.use(
     "/docs",
+    // @ts-ignore
     swaggerUi.serve,
     swaggerUi.setup(yaml.load(path.join(__dirname, "../../", "docs/swagger.yaml")))
   );

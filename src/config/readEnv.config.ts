@@ -33,10 +33,22 @@ export function readEnv(
   return defaultValue;
 }
 
+export function stagingEnvironment() {
+  return process.env.NODE_ENV === "staging" || process.env.ENVIRONMENT === "staging";
+}
+
+export function prodEnvironment() {
+  return process.env.NODE_ENV === "production" || process.env.ENVIRONMENT === "production";
+}
+
 export function devEnvironment() {
-  return process.env.NODE_ENV === "development";
+  return process.env.NODE_ENV === "development" || process.env.ENVIRONMENT === "development";
 }
 
 export function testEnvironment() {
-  return process.env.NODE_ENV === "test";
+  return process.env.NODE_ENV === "test" || process.env.ENVIRONMENT === "test";
+}
+
+export function localEnvironment() {
+  return process.env.NODE_ENV === "development";
 }

@@ -1,9 +1,8 @@
-/* eslint-disable @typescript-eslint/no-misused-promises */
-import express, { type Request, type Response } from "express";
+import { type Response, Router } from "express";
 
-const router = express.Router();
+const router = Router();
 
-router.get("/", (_req: Request, res: Response) => {
+router.get("/", (_, res: Response) => {
   res.send({ message: "OK" });
 });
 
