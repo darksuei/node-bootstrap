@@ -22,6 +22,7 @@
     "http-status": "1.7.4",
     "morgan": "^1.10.0",
     "pg": "^8.11.5",
+    "reflect-metadata": "^0.2.2",
     "swagger-ui-express": "^5.0.1",
     "typeorm": "^0.3.20",
     "typescript": "^5.4.4",
