@@ -37,3 +37,6 @@ mkdir logs
 # Install deps
 echo "Installing dependencies.."
 yarn
+
+# Create .env
+cp .env.example .env
